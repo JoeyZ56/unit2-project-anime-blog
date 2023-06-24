@@ -4,10 +4,10 @@ const userController = require('../controllers/userController')
 
 router.post('/', userController.createUser)
 router.post('/login', userController.loginUser)
-router.post('/logout', userController.logoutUser)
-router.put('/:id', userController.deleteUser)
-router.delete('/:id', userController.deleteUser)
+router.post('/logout', userController.auth, userController.logoutUser)
+router.put('/:id', userController.auth, userController.updateUser)
+router.delete('/:id', userController.auth, userController.deleteUser)
 
-router.get('/new', userController.creeateForm)
+router.get('/feed', userController.feedIndex)
 
 module.exports = router

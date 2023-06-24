@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 exports.auth = async (req, res, next) => {
     try {
         const token = req.header('Authentication').replace('Bearer ', '')
-        const data = jwt.verifyt(token, 'waifu')
+        const data = jwt.verify(token, 'waifu')
         const user = await User.findOne({ _id: data._id})
         if(!user) {
             throw new Error()
@@ -20,6 +20,16 @@ exports.auth = async (req, res, next) => {
 }
 
 //Index
+exports.feedIndex = async (req, res) => {
+    try {
+        const userFeed = await User.find({})
+        res.render('users/feed', {
+            users: userFeed
+        })
+    } catch (error) {
+        res.status(400).send({ message: error.message })
+    }
+}
 
 
 //Create User
@@ -36,9 +46,7 @@ exports.createUser = async (req, res) => {
 }
 
 //User Form
-exports.creeateForm = (req, res) => {
-    res.render('users/New')
-}
+
 
 
 //Show
@@ -72,7 +80,17 @@ exports.logoutUser = async (req, res) => {
     }
 }
 //Update User
-
+exports.updateUser = async (req, res) => {
+    try {
+        const update = Object.keys(req.body)
+        const user = await User.findOne({ _id: req.params.id })
+        update.forEach(update => user[update] = req.body[update])
+        await user.save()
+        res.json(user)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
 
 
 //Delete User
