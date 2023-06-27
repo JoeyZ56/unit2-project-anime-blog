@@ -17,7 +17,7 @@ userSchema.pre('save', async function(next) {
     next()
 })
 //creating a token so the user stays loggedin, expires in 24 hours from login
-userSchema.methods.generateAuthtoken = async function() {
+userSchema.methods.generateAuthToken = async function() {
     const token = jwt.sign({_id: this._id }, 'waifu', { expiresIn: '24h'})
     return token
 }

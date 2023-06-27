@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json)
 app.use(express.static('static'))
 app.use(morgan('combined'))
-app.use('/user', userRoutes)
+app.use('/users', userRoutes)
 app.use(methodOverride('_method'))
 
 module.exports = app

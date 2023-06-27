@@ -23,13 +23,13 @@ afterAll(async () => {
 describe('Testing the user endpoints', () => {
     test('It should create a new user', async () => {
         const response = await request(app)
-            .post('/users')
-            .send({ name: 'test1', email: 'test1@email.com', password: 'test123' })
-        expect(response.statusCode).toBe(200)
-        expect(response.body.user.name).toEqual('test1')
-        expect(response.body.user.email).toEqual('test1@email.com')
-        expect(response.body.user.loggedIn).toEqual(false)
-        expect(response.body).toHaveProperty('token')
+        .post('/users')
+        .send({ name: 'test1', email: 'test1@email.com', password: 'test123' })
+    expect(response.statusCode).toBe(200)
+    expect(response.body.user.name).toEqual('test1')
+    expect(response.body.user.email).toEqual('test1@email.com')
+    expect(response.body.user.loggedIn).toEqual(false)
+    expect(response.body).toHaveProperty('token')
     })
     //testing user loggin
     test('it should login a user', async () => {
@@ -37,13 +37,13 @@ describe('Testing the user endpoints', () => {
         await user.save()
 
         const response = await request(app)
-            .post('/users/login')
-            .send({ email: 'test1@email.com', password: 'test123' })
-        expect(response.statusCode).toBe(200)
-        expect(response.body.user.name).toEqual('test1')
-        expect(response.body.user.email).toEqual('test1@email.com')
-        expect(response.body.user.loggedIn).toEqual(true)
-        expect(response.body).toHaveProperty('token')
+        .post('/users/login')
+        .send({ email: 'test1@email.com', password: 'test123' })
+    expect(response.statusCode).toBe(200)
+    expect(response.body.user.name).toEqual('test1')
+    expect(response.body.user.email).toEqual('test1@email.com')
+    expect(response.body.user.loggedIn).toEqual(true)
+    expect(response.body).toHaveProperty('token')
     })
     //Update a user
     test('It should update a user', async () => {
