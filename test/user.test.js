@@ -37,7 +37,7 @@ describe("Testing the user endpoints", () => {
       name: "test1",
       email: "test1@email.com",
       password: "test123",
-      logginIn: false,
+      loggedIn: false,
     });
     await user.save();
 
@@ -56,7 +56,7 @@ describe("Testing the user endpoints", () => {
       name: "test1",
       email: "test1@email.com",
       password: "test123",
-      logginIn: true,
+      loggedIn: true,
     });
     await user.save();
     const token = await user.generateAuthToken();
@@ -73,7 +73,7 @@ describe("Testing the user endpoints", () => {
       name: "test1",
       email: "test1@email.com",
       password: "test123",
-      logginIn: true,
+      loggedIn: true,
     });
     await user.save();
     const token = await user.generateAuthToken();
