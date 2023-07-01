@@ -7,7 +7,6 @@ mongoose.connect, connects my mongodb database to MY mongo URI
 mongoose.connection loads my server once activated giving me a message letting me know its connected
 app.listen tells my server to listen on a specific PORT(3000)
 
-
 app.js:
 require dotenv config connects my env to my app.js file
 const express connects express(node) to my app.js file
@@ -25,7 +24,6 @@ app.use methodOverride retrieves the method from the server
 
 modules.export = app exports the "require" objects from the app.js file
 
-
 routes/userRoutes.js:
 const express connects express to the userRoutes.js file
 const router invokes creating new router objects for the userRoutes.js file
@@ -39,13 +37,9 @@ router/delete "/:id" invokes the delete user route with user id from the userCon
 
 modules.exports = router exports the "require" objects from the userRoutes.js file
 
-
 controllers/userController.js
 
-
 models/user.js
-
-
 
 WIREFRAME:
 https://excalidraw.com/#json=yrBXBk5BACny5M8wS7L33,MpY6UyOztplZLnzp2_lZMw
