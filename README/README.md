@@ -1,45 +1,107 @@
-Server.js:
-require dotenv config connects my env to my server.js file (its private!)
-const app connects my app.js to my server.js file
-const mongoose connects my mongodb data base to my server.js file
-const PORT tells my server where to listen on or to fall back on my local server 3000
-mongoose.connect, connects my mongodb database to MY mongo URI
-mongoose.connection loads my server once activated giving me a message letting me know its connected
-app.listen tells my server to listen on a specific PORT(3000)
+How to install this app on their local machine:
 
-app.js:
-require dotenv config connects my env to my app.js file
-const express connects express(node) to my app.js file
-const mongoose connects my mongodb data base to my server.js file
-const morgan connects morgan(middleware) to my app.js
-const app creates a varibale that invokes express(node)
-const userRoutes connects my routes/userRoutes file to my app.js file
-const methodOverride connects method-overide(middleware) to my app.js file
+    1. Go to github and grab "unit2-anime-blog" from user: JoeyZ56 URL: https://github.com/JoeyZ56/unit2-project-anime-blog.git
 
-app.use express.urlencoded/express.json invoke the middleware routes for POST and PUT requests to the server
-app.use express.static creates a route to the my static files (html/css)
-app.use moragn tells express to log morgan in "combined" predifined format
-app.use /users creates the http /users route for my server
-app.use methodOverride retrieves the method from the server
+    2. Clone code by coping URL: https://github.com/JoeyZ56/unit2-project-anime-blog.git
 
-modules.export = app exports the "require" objects from the app.js file
+    3. Open terminal make a folder you want to put the code in "mkdir anime-blog-clone"
 
-routes/userRoutes.js:
-const express connects express to the userRoutes.js file
-const router invokes creating new router objects for the userRoutes.js file
-const userContoller connects userController.js to the userRoutes.js file
+    4. From terminal (and in the folder you want code to be) run command "git clone https://github.com/JoeyZ56/unit2-project-anime-blog.git"
 
-router.post "/" invokes the create user route from the userController.js file
-router.post "/login" invokes the login route from the userController.js file
-router.post "/logout" invokes the logout route from the userController.js file
-router.put "/:id" invokes the update user route with user id from the userController.js file
-router/delete "/:id" invokes the delete user route with user id from the userController.js file.
+    5. cd to "unit2-anime-blog" from terminal
 
-modules.exports = router exports the "require" objects from the userRoutes.js file
+    6. run terminal command "code ." to open files in VS code
 
-controllers/userController.js
+Global installations you need and files you need to create that didn't come in the github repo:
 
-models/user.js
+Installations requires:
+
+    - From terminal be in file location that "unit2-anime-blog" is in or cd there then npm i to install all dependencies
+
+Files to add:
+
+    - (For this next step you must have a Mongodb atlas account) From terminal in code location make a file called ".env" place your MONGO_URI and your "SHA-256" hashed SECRET in this file
+
+        MONGO_URI=
+        SECRET=
+
+How to start the app in dev mode:
+
+    To start the app in dev mode from the terminal run command line "npm run dev"
+    You will know server is up and running when the terminal says "Our army is 3000 strong", and "Mongo is witchcraft"
+
+How to make an api request in Postman (i.e what port, what url etc):
+
+Manual testing with Postman:
+
+    URL: http://localhost:3000, PORT:3000
+
+From breadcrum:
+
+    Body -> raw -> json
+
+For user testing:
+
+    Create user: Post route -> http://localhost:3000/users -> (follow steps from models/user.js) body{
+    "name": " ",
+    "email": " ",
+    "password": " "
+    } -> send request
+
+Login user:
+
+    Post route -> http://localhost:3000/users/login -> (remove "name") body{
+    "email": " ",
+    "password": " "
+    }
+    copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Update user:
+
+    Put route -> http://localhost:3000/users/:id -> (only keep what your updating) body{
+    "email": "different email"
+    } -> (copy :id put at the end of /users/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Delete user:
+
+    Delete route -> http://localhost:3000/users/:id -> (copy :id put at the end of /users/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Logout user:
+
+    Post route -> http://localhost:3000/users/logout -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+For testing Posts: (user must be logged in for testing all routes)
+
+    Create Post: Post route - http://localhost:3000/posts -> body{
+    "title": " ",
+    "description": " "
+    } -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Update Post:
+
+    Put route -> http://localhost:3000/posts/:id -> (only keep what your updating) body{
+    "title": " "
+    } -> (copy :id put at the end of /users/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Delete Post:
+
+    Delete route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Show user posts:
+
+    Get route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+Show posts feed:
+
+    Get route -> http://localhost:3000/posts/feed -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+
+How to run tests:
+
+    - For Jest testing: From the terminal (make sure your not connected to Mongodb server), write in command line "npm i test" this will start the Jest testing for posts / user tests (ALL 8 should be passing).
+
+    - For Artillery testing: Open a sepreate terminal (make sure your connected to mongodb in the main terminal) cd to the folder that hold all the files for the blog then in that seperate terminal run command "npm run load" (Should get 20 (200) message from results)
+
+How to start the app without dev mode:
 
 WIREFRAME:
 https://excalidraw.com/#json=yrBXBk5BACny5M8wS7L33,MpY6UyOztplZLnzp2_lZMw
