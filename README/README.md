@@ -105,3 +105,6 @@ How to start the app without dev mode:
 
 WIREFRAME:
 https://excalidraw.com/#json=yrBXBk5BACny5M8wS7L33,MpY6UyOztplZLnzp2_lZMw
+
+Diagram:
+https://lucid.app/lucidchart/65e88c1f-90c5-43cb-9afa-a2f4405bb371/edit?viewport_loc=-194%2C-178%2C1590%2C748%2C0_0&invitationId=inv_05ca3a98-9a46-4d06-be12-118fdcf3e4d1
