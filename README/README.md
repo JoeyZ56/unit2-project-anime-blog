@@ -1,16 +1,14 @@
 How to install this app on their local machine:
 
-    1. Go to github and grab "unit2-anime-blog" from user: JoeyZ56 URL: https://github.com/JoeyZ56/unit2-project-anime-blog.git
+    1. Clone code by coping URL: https://github.com/JoeyZ56/unit2-project-anime-blog.git
 
-    2. Clone code by coping URL: https://github.com/JoeyZ56/unit2-project-anime-blog.git
+    2. Open terminal make a folder you want to put the code in "mkdir anime-blog-clone"
 
-    3. Open terminal make a folder you want to put the code in "mkdir anime-blog-clone"
+    3. From terminal (and in the folder you want code to be) run command "git clone https://github.com/JoeyZ56/unit2-project-anime-blog.git"
 
-    4. From terminal (and in the folder you want code to be) run command "git clone https://github.com/JoeyZ56/unit2-project-anime-blog.git"
+    4. cd to "unit2-anime-blog" from terminal
 
-    5. cd to "unit2-anime-blog" from terminal
-
-    6. run terminal command "code ." to open files in VS code
+    5. run terminal command "code ." to open files in VS code
 
 Global installations you need and files you need to create that didn't come in the github repo:
 
@@ -85,15 +83,15 @@ Update Post:
 
 Delete Post:
 
-    Delete route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+    Delete route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> send
 
 Show user posts:
 
-    Get route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+    Get route -> http://localhost:3000/posts/:id -> (copy :id put at the end of /posts/) -> send
 
 Show posts feed:
 
-    Get route -> http://localhost:3000/posts/feed -> (copy :id put at the end of /posts/) -> copy token -> breadcrum: Auth {type: Bearer Token} paste token -> send
+    Get route -> http://localhost:3000/posts/feed -> (copy :id put at the end of /posts/) -> send
 
 How to run tests:
 
@@ -102,6 +100,8 @@ How to run tests:
     - For Artillery testing: Open a sepreate terminal (make sure your connected to mongodb in the main terminal) cd to the folder that hold all the files for the blog then in that seperate terminal run command "npm run load" (Should get 20 (200) message from results)
 
 How to start the app without dev mode:
+
+    - (Make sure you not in "Dev Mode") in terminal run command "npm run start"
 
 WIREFRAME:
 https://excalidraw.com/#json=yrBXBk5BACny5M8wS7L33,MpY6UyOztplZLnzp2_lZMw

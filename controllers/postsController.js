@@ -1,5 +1,4 @@
 const Posts = require("../models/posts");
-const User = require("../models/user");
 
 //Create
 exports.createPost = async (req, res) => {
@@ -62,7 +61,7 @@ exports.updatePosts = async (req, res) => {
 //Delete User
 exports.deletePosts = async (req, res) => {
   try {
-    const posts = await Posts.findOneAndDelete({ _id: req.params.id });
+    await Posts.findOneAndDelete({ _id: req.params.id });
     res.json({ message: "your post has been removed!" });
   } catch (error) {
     res.status(400).json({ message: error.message });
