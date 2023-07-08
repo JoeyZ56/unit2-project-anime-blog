@@ -14,7 +14,7 @@ Global installations you need and files you need to create that didn't come in t
 
 Installations requires:
 
-    - From terminal be in file location that "unit2-anime-blog" is in or cd there then npm i to install all dependencies
+    - (You will need Node Js installed globally on your computure) From terminal be in file location that "unit2-anime-blog" is in or cd there then npm i to install all dependencies
 
 Files to add:
 
