@@ -1,11 +1,11 @@
 require("dotenv").config();
-const app = require("./app");
-const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGO_URI);
-mongoose.connection.once("open", () => console.log("Mongo is witch craft!"));
+require("./config/database");
+
+const app = require("./app-server");
+
+const PORT = process.env.PORT || 8001;
 
 app.listen(PORT, () => {
-  console.log(`We have an amry of ${PORT} strong me lord`);
+  console.log(`I am listening on ${PORT}. All systems are a go!`);
 });
